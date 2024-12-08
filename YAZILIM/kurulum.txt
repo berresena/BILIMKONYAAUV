@@ -25,3 +25,10 @@ libcurl: (51) SSL: no alternative certificate subject name matches target host n
 şu komut ile açılan dosya içinde 
 gedit ~/.ignition/fuel/config.yaml
 https://api.ignitionfuel.org linkini  url: https://api.ignitionrobotics.org ile değiştirin
+
+https://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux
+https://www.ardusub.com/
+https://www.ardusub.com/developers/pymavlink.html
+
+soru cevap kaynağı için 
+https://discuss.bluerobotics.com/t/how-use-pymavlink/5674
