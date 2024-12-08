@@ -1,1 +1,27 @@
-Sena Hocanız bu kısmı birazdan dolduracaktır. Beklemede kalın :)
+GAZEBO SİMÜLASYON ORTAMI İÇİN:
+sudo apt-get update
+sudo apt install gazebo9
+sudo apt install libgazebo11-dev
+
+SUALTI ORTAMINI OLUŞTURMAK İÇİN:
+git clone https://github.com/bluerobotics/freebuoyancy_gazebo
+cd freebuoyancy_gazebo
+mkdir build
+cd build
+cmake ..
+make
+
+DENEMEK İÇİN:
+source gazebo.sh
+gazebo worlds/freebuoyancy_demo.world -u
+
+eğer ki şu hatayı alıyorsanız:
+berresena@berresena-ABRA-A5-V15-6:~/freebuoyancy_gazebo$ gazebo worlds/freebuoyancy_demo.world -u
+[Err] [REST.cc:205] Error in REST request BU SATIR
+
+libcurl: (51) SSL: no alternative certificate subject name matches target host name 'api.ignitionfuel.org'
+
+ÇÖZÜMÜ:
+şu komut ile açılan dosya içinde 
+gedit ~/.ignition/fuel/config.yaml
+https://api.ignitionfuel.org linkini  url: https://api.ignitionrobotics.org ile değiştirin
