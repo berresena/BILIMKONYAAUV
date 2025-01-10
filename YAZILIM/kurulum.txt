@@ -1,34 +1,38 @@
-GAZEBO SİMÜLASYON ORTAMI İÇİN:
+ARDUSUB
 sudo apt-get update
-sudo apt install gazebo9
-sudo apt install libgazebo11-dev
+sudo apt-get install git
+sudo apt-get install gitk git-gui
 
-SUALTI ORTAMINI OLUŞTURMAK İÇİN:
-git clone https://github.com/bluerobotics/freebuoyancy_gazebo
-cd freebuoyancy_gazebo
-mkdir build
-cd build
-cmake ..
-make
+git clone https://github.com/
+ArduPilot/ardupilot.git
+cd ardupilot
+Tools/environment_install/install-prereqs-ubuntu.sh -y
+. ~/.profile
 
-DENEMEK İÇİN:
-source gazebo.sh
-gazebo worlds/freebuoyancy_demo.world -u
+sudo reboot
 
-eğer ki şu hatayı alıyorsanız:
-berresena@berresena-ABRA-A5-V15-6:~/freebuoyancy_gazebo$ gazebo worlds/freebuoyancy_demo.world -u
-[Err] [REST.cc:205] Error in REST request BU SATIR
+GAZEBO-GARDEN
 
-libcurl: (51) SSL: no alternative certificate subject name matches target host name 'api.ignitionfuel.org'
+sudo apt-get update
+sudo apt-get install curl lsb-release gnupg
 
-ÇÖZÜMÜ:
-şu komut ile açılan dosya içinde 
-gedit ~/.ignition/fuel/config.yaml
-https://api.ignitionfuel.org linkini  url: https://api.ignitionrobotics.org ile değiştirin
+ubuntu 20.04 için gazebo garden
 
-https://ardupilot.org/dev/docs/building-setup-linux.html#building-setup-linux
-https://www.ardusub.com/
-https://www.ardusub.com/developers/pymavlink.html
+sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+echo "deb [arch=$(dpkg --print-architecture)signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
 
-soru cevap kaynağı için 
-https://discuss.bluerobotics.com/t/how-use-pymavlink/5674
+sudo apt-get update
+sudo apt-get install gz-garden
+
+ubuntu 22.04 için GAZEBO-HARMONIC
+
+sudo apt-get update
+sudo apt-get install curl lsb-release gnupg
+
+sudo curl https://packages.osrfoundation.org/gazebo.gpg --output /usr/share/keyrings/pkgs-osrf-archive-keyring.gpg
+
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/usr/share/keyrings/pkgs-osrf-archive-keyring.gpg] http://packages.osrfoundation.org/gazebo/ubuntu-stable $(lsb_release -cs) main" | sudo tee /etc/apt/sources.list.d/gazebo-stable.list > /dev/null
+
+sudo apt-get update
+sudo apt-get install gz-harmonic
+
